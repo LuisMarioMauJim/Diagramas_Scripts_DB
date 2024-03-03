@@ -5,37 +5,38 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema Piloto-coche
+-- Schema mydb
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema Piloto-coche
+-- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `Piloto-coche` DEFAULT CHARACTER SET utf8 ;
-USE `Piloto-coche` ;
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `Piloto-coche`.`COCHE`
+-- Table `mydb`.`PROGRAMA`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Piloto-coche`.`COCHE` (
-  `matricula` INT NOT NULL,
-  `asientos` INT NULL,
-  `marca` VARCHAR(45) NULL,
-  `modelo` VARCHAR(45) NULL,
-  `nif` INT NOT NULL,
-  PRIMARY KEY (`matricula`, `nif`))
+CREATE TABLE IF NOT EXISTS `mydb`.`PROGRAMA` (
+  `cod_programa` INT NOT NULL,
+  `lenguaje` VARCHAR(20) NULL,
+  `sistema-operativo` VARCHAR(15) NULL,
+  `fecha-terminacion` DATETIME NULL,
+  PRIMARY KEY (`cod_programa`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Piloto-coche`.`PILOTO`
+-- Table `mydb`.`PROGRAMADOR`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Piloto-coche`.`PILOTO` (
-  `nif` INT NOT NULL,
-  `nombre` VARCHAR(45) NULL,
-  `direccion` VARCHAR(30) NULL,
-  `matricula` INT NOT NULL,
-  PRIMARY KEY (`nif`, `matricula`))
+CREATE TABLE IF NOT EXISTS `mydb`.`PROGRAMADOR` (
+  `nombre_programador` VARCHAR(30) NOT NULL,
+  `nombre_2` VARCHAR(15) NULL,
+  `apellidoPaterno` VARCHAR(15) NOT NULL,
+  `apellidoMaterno` VARCHAR(15) NOT NULL,
+  `PROGRAMA_cod_programa` INT NOT NULL,
+  PRIMARY KEY (`nombre_programador`),
+  INDEX `fk_PROGRAMADOR_PROGRAMA_idx` (`PROGRAMA_cod_programa` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 

@@ -19,7 +19,9 @@ USE `MédicoPaciente` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `MédicoPaciente`.`MEDICO` (
   `codmed` INT NOT NULL,
-  `nombre` VARCHAR(45) NULL,
+  `nombre(s)` VARCHAR(45) NOT NULL,
+  `apellidoPaterno` VARCHAR(45) NOT NULL,
+  `apellidoMaterno` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`codmed`))
 ENGINE = InnoDB;
 
@@ -29,19 +31,23 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `MédicoPaciente`.`PACIENTE` (
   `codpac` INT NOT NULL,
-  `nombre` VARCHAR(45) NULL,
+  `nombre(s)` VARCHAR(45) NOT NULL,
+  `apellidoPaterno` VARCHAR(45) NOT NULL,
+  `apellidoMaterno` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`codpac`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `MédicoPaciente`.`CITA`
+-- Table `MédicoPaciente`.`CITAS`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `MédicoPaciente`.`CITA` (
+CREATE TABLE IF NOT EXISTS `MédicoPaciente`.`CITAS` (
   `MEDICO_codmed` INT NOT NULL,
   `PACIENTE_codpac` INT NOT NULL,
-  `fecha_cita` DATETIME NOT NULL,
-  `hora_cita` DATETIME NOT NULL,
+  `hora` VARCHAR(45) NOT NULL,
+  `dia` INT NOT NULL,
+  `mes` INT NOT NULL,
+  `año` INT NOT NULL,
   PRIMARY KEY (`MEDICO_codmed`, `PACIENTE_codpac`),
   INDEX `fk_MEDICO_has_PACIENTE_PACIENTE1_idx` (`PACIENTE_codpac` ASC) VISIBLE,
   INDEX `fk_MEDICO_has_PACIENTE_MEDICO_idx` (`MEDICO_codmed` ASC) VISIBLE)

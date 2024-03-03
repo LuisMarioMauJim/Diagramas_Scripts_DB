@@ -5,35 +5,38 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema EJEMPLOS.1
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema EJEMPLOS.1
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `EJEMPLOS.1` DEFAULT CHARACTER SET utf8 ;
+USE `EJEMPLOS.1` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Empleado`
+-- Table `EJEMPLOS.1`.`EMPLEADO`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Empleado` (
-  `codemp` INT NOT NULL,
-  `nombre` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`codemp`))
+CREATE TABLE IF NOT EXISTS `EJEMPLOS.1`.`EMPLEADO` (
+  `Nif` INT NOT NULL,
+  `Nombre` VARCHAR(45) NOT NULL,
+  `ApellidoPaterno` VARCHAR(45) NOT NULL,
+  `ApellidoMaterno` VARCHAR(45) NOT NULL,
+  `Direccion` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Nif`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Vehiculo`
+-- Table `EJEMPLOS.1`.`DEPARTAMENTO`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Vehiculo` (
-  `matricula` VARCHAR(10) NOT NULL,
-  `modelo` VARCHAR(45) NOT NULL,
-  `fecha_inicio` DATE NOT NULL,
-  `codemp` INT NOT NULL,
-  PRIMARY KEY (`matricula`, `codemp`),
-  INDEX `fk_Vehiculo_Empleado_idx` (`codemp` ASC) VISIBLE)
+CREATE TABLE IF NOT EXISTS `EJEMPLOS.1`.`DEPARTAMENTO` (
+  `Cod-Dpto` INT NOT NULL,
+  `Nombre` VARCHAR(45) NOT NULL,
+  `Localidad` VARCHAR(45) NOT NULL,
+  `EMPLEADO_Nif` INT NOT NULL,
+  PRIMARY KEY (`Cod-Dpto`),
+  INDEX `fk_DEPARTAMENTO_EMPLEADO_idx` (`EMPLEADO_Nif` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 

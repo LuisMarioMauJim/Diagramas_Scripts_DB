@@ -19,8 +19,9 @@ USE `mydb` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Persona` (
   `Nif` INT NOT NULL,
-  `Nombre` VARCHAR(45) NOT NULL,
-  `Apellidos` VARCHAR(45) NOT NULL,
+  `Nombre(s)` VARCHAR(45) NOT NULL,
+  `ApellidoPaterno` VARCHAR(15) NOT NULL,
+  `ApellidoMaterno` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`Nif`))
 ENGINE = InnoDB;
 
@@ -31,9 +32,9 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Piso` (
   `Cod-Piso` INT NOT NULL,
   `Calle` VARCHAR(45) NOT NULL,
-  `Número` VARCHAR(45) NULL,
-  `Planta` VARCHAR(45) NULL,
-  `Puerta` VARCHAR(45) NULL,
+  `Número` INT NOT NULL,
+  `Planta` INT NOT NULL,
+  `Puerta` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Cod-Piso`))
 ENGINE = InnoDB;
 
@@ -45,7 +46,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`P-P` (
   `Persona_Nif` INT NOT NULL,
   `Piso_Cod-Piso` INT NOT NULL,
   `Precio_Alquiler` VARCHAR(45) NULL,
-  PRIMARY KEY (`Persona_Nif`, `Piso_Cod-Piso`),
   INDEX `fk_Persona_has_Piso_Piso1_idx` (`Piso_Cod-Piso` ASC) VISIBLE,
   INDEX `fk_Persona_has_Piso_Persona_idx` (`Persona_Nif` ASC) VISIBLE)
 ENGINE = InnoDB;

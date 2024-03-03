@@ -20,9 +20,9 @@ USE `Profesor-Grupo_alumnos` ;
 CREATE TABLE IF NOT EXISTS `Profesor-Grupo_alumnos`.`Profesor` (
   `Cod_profesor` INT NOT NULL,
   `Nif` VARCHAR(45) NOT NULL,
-  `Primer nombre` VARCHAR(45) NOT NULL,
-  `Segundo nombre` VARCHAR(45) NOT NULL,
-  `Prmer apellido` VARCHAR(45) NOT NULL,
+  `PrimerNombre` VARCHAR(45) NOT NULL,
+  `SegundoNombre` VARCHAR(45) NULL,
+  `ApellidoPaterno` VARCHAR(45) NOT NULL,
   `Segundo apellido` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Cod_profesor`))
 ENGINE = InnoDB;
@@ -45,7 +45,6 @@ CREATE TABLE IF NOT EXISTS `Profesor-Grupo_alumnos`.`P-G` (
   `Profesor_Cod_profesor` INT NOT NULL,
   `Grupos alumnos_Cod-grupo` INT NOT NULL,
   `Año academico` INT NOT NULL,
-  PRIMARY KEY (`Profesor_Cod_profesor`, `Grupos alumnos_Cod-grupo`),
   INDEX `fk_Profesor_has_Grupos alumnos_Grupos alumnos1_idx` (`Grupos alumnos_Cod-grupo` ASC) VISIBLE,
   INDEX `fk_Profesor_has_Grupos alumnos_Profesor_idx` (`Profesor_Cod_profesor` ASC) VISIBLE)
 ENGINE = InnoDB;

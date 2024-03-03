@@ -30,8 +30,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Empleado` (
   `Cod Empleado` INT NOT NULL,
   `Nombre` VARCHAR(45) NOT NULL,
-  `1er apellido` VARCHAR(45) NOT NULL,
-  `2do apellido` VARCHAR(45) NOT NULL,
+  `ApellidoPaterno` VARCHAR(45) NOT NULL,
+  `ApellidoMaterno` VARCHAR(45) NOT NULL,
   `Dirección` VARCHAR(45) NOT NULL,
   `Tipo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Cod Empleado`))
